@@ -132,10 +132,7 @@ const PropertyDetails = () => {
 
   return (
     <>
-      <div
-        className="min-h-screen bg-gray-900 text-gray-100"
-        
-      >
+      <div className="min-h-screen bg-gray-900 text-gray-100">
         {/* Hero Section */}
         <div className="relative h-80 md:h-96 lg:h-[500px] overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70 z-10"></div>
@@ -357,8 +354,8 @@ const PropertyDetails = () => {
                   )}
                 </div>
 
-                <div className="mt-10 grid grid-cols-1  gap-6">
-                  <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors duration-300 max-w-xl w-xl mx-auto">
+                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors duration-300 max-w-full sm:max-w-xl w-full mx-auto">
                     <h3 className="text-white font-medium mb-4 flex items-center">
                       <Building size={18} className="text-purple-400 mr-2" />
                       Property Specifications
