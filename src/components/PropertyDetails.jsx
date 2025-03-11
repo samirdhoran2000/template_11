@@ -354,7 +354,7 @@ const PropertyDetails = () => {
                   )}
                 </div>
 
-                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-1">
                   <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors duration-300 max-w-full sm:max-w-xl w-full mx-auto">
                     <h3 className="text-white font-medium mb-4 flex items-center">
                       <Building size={18} className="text-purple-400 mr-2" />
@@ -362,31 +362,31 @@ const PropertyDetails = () => {
                     </h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400">Property ID:</span>
+                        <span className="text-gray-400 mr-4">Property ID:</span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.id}
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400">Property Type:</span>
+                        <span className="text-gray-400 mr-4">Property Type:</span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.property_type}
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400">Developer:</span>
+                        <span className="text-gray-400 mr-4">Developer:</span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.builder_name}
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400">Last Updated:</span>
+                        <span className="text-gray-400 mr-4">Last Updated:</span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.last_updated}
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2">
-                        <span className="text-gray-400">Status:</span>
+                        <span className="text-gray-400 mr-4">Status:</span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.property_status}
                         </span>

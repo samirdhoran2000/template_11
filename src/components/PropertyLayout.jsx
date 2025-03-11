@@ -151,10 +151,10 @@ const PropertyLayouts = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8 px-4">
           <div className="flex bg-gray-800 p-1 rounded-lg">
             <button
-              className={`flex items-center gap-2 px-4 py-2 rounded-md transition ${
+              className={`flex items-center gap-1 px-2 py-1 lg:px-4 lg:py-2 rounded-md transition text-s lg:text-base ${
                 activeTab === "unit"
                   ? "bg-purple-600 text-white"
                   : "text-gray-400 hover:text-gray-200"
@@ -168,7 +168,7 @@ const PropertyLayouts = () => {
               <span>Unit Layouts</span>
             </button>
             <button
-              className={`flex items-center gap-2 px-4 py-2 rounded-md transition ${
+              className={`flex items-center gap-1 px-2 py-1 lg:px-4 lg:py-2 rounded-md transition text-s lg:text-base ${
                 activeTab === "floor"
                   ? "bg-purple-600 text-white"
                   : "text-gray-400 hover:text-gray-200"
@@ -182,7 +182,7 @@ const PropertyLayouts = () => {
               <span>Floor Plans</span>
             </button>
             <button
-              className={`flex items-center gap-2 px-4 py-2 rounded-md transition ${
+              className={`flex items-center gap-1 px-2 py-1 lg:px-4 lg:py-2 rounded-md transition text-s lg:text-base ${
                 activeTab === "master"
                   ? "bg-purple-600 text-white"
                   : "text-gray-400 hover:text-gray-200"
