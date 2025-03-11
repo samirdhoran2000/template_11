@@ -11,6 +11,7 @@ import {
   PenSquare,
   DollarSign,
   Ruler,
+  IndianRupee,
 } from "lucide-react";
 import { ContactDialog } from "./Contact";
 import config from "../../config";
@@ -291,7 +292,7 @@ const PropertyLayouts = () => {
                         {activeLayouts[currentSlide]?.unit_layout_price && (
                           <div className="flex items-center gap-3 text-gray-300">
                             <div className="p-2 rounded-full bg-black/80 text-purple-400">
-                              <DollarSign size={18} />
+                              <IndianRupee size={18} />
                             </div>
                             <div>
                               <p className="text-gray-400 text-sm">Price</p>

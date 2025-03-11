@@ -368,7 +368,9 @@ const PropertyDetails = () => {
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400 mr-4">Property Type:</span>
+                        <span className="text-gray-400 mr-4">
+                          Property Type:
+                        </span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.property_type}
                         </span>
@@ -380,7 +382,9 @@ const PropertyDetails = () => {
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-gray-700">
-                        <span className="text-gray-400 mr-4">Last Updated:</span>
+                        <span className="text-gray-400 mr-4">
+                          Last Updated:
+                        </span>
                         <span className="text-gray-200 font-medium">
                           {propertyData.last_updated}
                         </span>
