@@ -18,11 +18,11 @@ const HomePage = () => {
       <>
           <PropertyHeader />
           <ReraInformation />
+          <PropertyDetails />
           
           <VideoTour />
           <PropertyPriceTable />
           
-          <PropertyDetails />
           <Banks />
           <UnitLayout />
           <LocationAdvantages />

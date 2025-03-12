@@ -315,7 +315,7 @@ export default function PropertyHeader() {
                     className="text-purple-400 mr-3 flex-shrink-0"
                   />
                   <span className="text-gray-300 text-sm">
-                    {propertyData.rating}/5 (120 reviews)
+                    {4.8}/5 (120 reviews)
                   </span>
                 </div>
                 <div className="flex items-center">

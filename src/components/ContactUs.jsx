@@ -13,7 +13,7 @@ import config from "../../config";
 
 const ContactUs = () => {
   const [contactData, setContactData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // States for form submission
@@ -32,27 +32,27 @@ const ContactUs = () => {
   const [formErrors, setFormErrors] = useState({});
 
   // Fetch contact details (address, phone, email, map, etc.)
-  useEffect(() => {
-    const fetchContactData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${config.API_URL}/contact-us?website=${config.SLUG_URL}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch contact data");
-        }
-        const data = await response.json();
-        setContactData(data.contact_us);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchContactData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const response = await fetch(
+  //         `${config.API_URL}/contact-us?website=${config.SLUG_URL}`
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch contact data");
+  //       }
+  //       const data = await response.json();
+  //       setContactData(data.contact_us);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       setError(err.message);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchContactData();
-  }, []);
+  //   fetchContactData();
+  // }, []);
 
   // Handle input changes and clear errors for the specific field
   const handleInputChange = (e) => {
@@ -74,19 +74,19 @@ const ContactUs = () => {
     if (!formData.last_name.trim()) {
       errors.last_name = "Last name is required";
     }
-    if (!formData.email_id.trim()) {
-      errors.email_id = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email_id)) {
-      errors.email_id = "Email is invalid";
-    }
+    // if (!formData.email_id.trim()) {
+    //   errors.email_id = "Email is required";
+    // } else if (!/\S+@\S+\.\S+/.test(formData.email_id)) {
+    //   errors.email_id = "Email is invalid";
+    // }
     if (!formData.phone_number.trim()) {
       errors.phone_number = "Phone number is required";
     } else if (!/^[0-9]{10}$/.test(formData.phone_number.replace(/\s/g, ""))) {
       errors.phone_number = "Please enter a valid 10-digit phone number";
     }
-    if (!formData.message.trim()) {
-      errors.message = "Message is required";
-    }
+    // if (!formData.message.trim()) {
+    //   errors.message = "Message is required";
+    // }
 
     return errors;
   };
@@ -132,9 +132,9 @@ const ContactUs = () => {
       });
 
       // Clear the success message after 3 seconds (optional)
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 3000);
+      // setTimeout(() => {
+      //   setSubmitStatus(null);
+      // }, 3000);
     } catch (error) {
       setSubmitStatus("error");
       setErrorMessage(
@@ -172,7 +172,7 @@ const ContactUs = () => {
         <div className="w-24 h-1 bg-purple-600 mx-auto rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-1  max-w-4xl mx-auto">
         {/* Contact Form */}
         <div className="bg-gray-800/60 p-6 rounded-lg border border-gray-800 shadow-lg">
           <h3 className="text-xl font-semibold text-gray-100 mb-6">
@@ -192,7 +192,7 @@ const ContactUs = () => {
           )}
 
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-1 mx-auto mb-4">
               <div>
                 <label
                   htmlFor="first_name"
@@ -278,12 +278,12 @@ const ContactUs = () => {
                     placeholder="email@example.com"
                   />
                 </div>
-                {formErrors.email_id && (
+                {/* {formErrors.email_id && (
                   <p className="mt-1 text-red-400 text-sm flex items-center">
                     <AlertCircle size={14} className="mr-1" />
                     {formErrors.email_id}
                   </p>
-                )}
+                )} */}
               </div>
 
               <div>
@@ -340,12 +340,12 @@ const ContactUs = () => {
                   placeholder="Tell us about your requirements..."
                 ></textarea>
               </div>
-              {formErrors.message && (
+              {/* {formErrors.message && (
                 <p className="mt-1 text-red-400 text-sm flex items-center">
                   <AlertCircle size={14} className="mr-1" />
                   {formErrors.message}
                 </p>
-              )}
+              )} */}
             </div>
 
             <button
@@ -364,7 +364,7 @@ const ContactUs = () => {
         </div>
 
         {/* Contact Information & Map */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <div className="bg-gray-800/60 p-6 rounded-lg border border-gray-800 shadow-lg mb-6">
             <h3 className="text-xl font-semibold text-gray-100 mb-5">
               Contact Information
@@ -419,7 +419,7 @@ const ContactUs = () => {
           </div>
 
           {/* Map */}
-          <div className="bg-gray-800/60 p-6 rounded-lg border border-gray-800 shadow-lg flex-1">
+         {/* <div className="bg-gray-800/60 p-6 rounded-lg border border-gray-800 shadow-lg flex-1">
             <h3 className="text-xl font-semibold text-gray-100 mb-4">
               Location Map
             </h3>
@@ -437,7 +437,7 @@ const ContactUs = () => {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

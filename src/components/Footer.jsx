@@ -116,40 +116,40 @@ const Footer = () => {
 
           {/* About Us */}
           <div className="w-full md:w-auto">
-            <h3 className="text-white text-base font-medium mb-3">About Us</h3>
+            <h3 className="text-white text-base font-medium mb-3">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#about"
+                  href="#property-details"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
                 >
-                  About Company
+                  Our Projects
                 </a>
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="#property-details"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
                 >
-                  Our Services
+                  Why Choose Us
                 </a>
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="#contact"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
                 >
-                  Properties
+                  Contact Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#about"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
                 >
                   Career
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -159,7 +159,7 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-2">
-              <li className="flex items-start">
+              {/* <li className="flex items-start">
                 <MapPin
                   size={16}
                   className="text-purple-400 mt-1 mr-2 flex-shrink-0"
@@ -167,8 +167,8 @@ const Footer = () => {
                 <span className="text-gray-400 text-sm">
                   {g_setting.footer_address}
                 </span>
-              </li>
-              <li className="flex items-center">
+              </li> */}
+              {/* <li className="flex items-center">
                 <Mail
                   size={16}
                   className="text-purple-400 mr-2 flex-shrink-0"
@@ -179,7 +179,7 @@ const Footer = () => {
                 >
                   {g_setting.footer_email}
                 </a>
-              </li>
+              </li> */}
               <li className="flex items-center">
                 <Phone
                   size={16}

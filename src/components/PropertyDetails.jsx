@@ -138,8 +138,8 @@ const PropertyDetails = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70 z-10"></div>
           <img
             src={
-              propertyData.og_image ||
-              "https://buyindiahomes.in//uploads/property_photos/c920ba40b85ea7f2710230bc6412fab3.jpg"
+              propertyData.og_image 
+              
             }
             alt={propertyData.property_name}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"

@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 
 import BlogContent from "./components/BlogContent";
 import Footer from "./components/Footer";
+import FloatingButtons from "./components/FloatingButtons";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
           {/* <TemplateHomePage /> */}
         </Routes>
+        <FloatingButtons />
         <Footer />
       </Router>
     </>

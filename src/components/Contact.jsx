@@ -53,11 +53,11 @@ export const ContactDialog = ({ isOpen, onClose }) => {
       errors.last_name = "Last name is required";
     }
 
-    if (!formData.email_id.trim()) {
-      errors.email_id = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email_id)) {
-      errors.email_id = "Email is invalid";
-    }
+    // if (!formData.email_id.trim()) {
+    //   errors.email_id = "Email is required";
+    // } else if (!/\S+@\S+\.\S+/.test(formData.email_id)) {
+    //   errors.email_id = "Email is invalid";
+    // }
 
     if (!formData.phone_number.trim()) {
       errors.phone_number = "Phone number is required";
@@ -65,9 +65,9 @@ export const ContactDialog = ({ isOpen, onClose }) => {
       errors.phone_number = "Please enter a valid 10-digit phone number";
     }
 
-    if (!formData.message.trim()) {
-      errors.message = "Message is required";
-    }
+    // if (!formData.message.trim()) {
+    //   errors.message = "Message is required";
+    // }
 
     return errors;
   };
@@ -248,12 +248,12 @@ export const ContactDialog = ({ isOpen, onClose }) => {
                   placeholder="email@example.com"
                 />
               </div>
-              {formErrors.email_id && (
+              {/* {formErrors.email_id && (
                 <p className="mt-1 text-red-400 text-xs flex items-center">
                   <AlertCircle size={12} className="mr-1" />
                   {formErrors.email_id}
                 </p>
-              )}
+              )} */}
             </div>
 
             <div className="mb-4">
@@ -312,12 +312,12 @@ export const ContactDialog = ({ isOpen, onClose }) => {
                   placeholder="Tell us about your requirements..."
                 ></textarea>
               </div>
-              {formErrors.message && (
+              {/* {formErrors.message && (
                 <p className="mt-1 text-red-400 text-xs flex items-center">
                   <AlertCircle size={12} className="mr-1" />
                   {formErrors.message}
                 </p>
-              )}
+              )} */}
             </div>
 
             <div className="flex items-center justify-end pt-2 border-t border-gray-700">
