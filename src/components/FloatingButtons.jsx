@@ -37,7 +37,7 @@ const FloatingButtons = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col-reverse items-end gap-4">
+    <div className="fixed bottom-12 right-8 z-50 flex flex-col-reverse items-end gap-4">
       {/* Expanded buttons */}
       {isExpanded && (
         <div className="flex flex-col-reverse gap-3 transition-all duration-300 ease-in-out">
