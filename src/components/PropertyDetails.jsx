@@ -28,6 +28,7 @@ import Location from "./Location";
 import Gallary from "./Gallary";
 import { ContactDialog } from "./Contact";
 import config from "../../config";
+import AboutBuilder from "./AboutBuilder";
 
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -117,6 +118,10 @@ const PropertyDetails = () => {
 
   return (
     <>
+      <AboutBuilder
+        heading={propertyData.property_name}
+        htmlContent={propertyData?.property_description}
+      />
       <div className="min-h-screen bg-gray-900 text-gray-100">
         {/* Hero Section */}
         <div className="relative h-80 md:h-96 lg:h-[500px] overflow-hidden">
