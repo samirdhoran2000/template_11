@@ -119,7 +119,7 @@ const PropertyDetails = () => {
   return (
     <>
       <AboutBuilder
-        heading={propertyData.property_name}
+        heading={propertyData?.about_builder_title}
         htmlContent={propertyData?.property_description}
       />
       <div className="min-h-screen bg-gray-900 text-gray-100">

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { ChevronDown } from "lucide-react";
 
-const AboutBuilder = ({ heading, htmlContent, maxHeight = "300px" }) => {
+const AboutBuilder = ({ heading='About Builder', htmlContent, maxHeight = "300px" }) => {
   const contentRef = useRef(null);
 
   // Function to safely render HTML content
@@ -19,12 +19,12 @@ const AboutBuilder = ({ heading, htmlContent, maxHeight = "300px" }) => {
   };
 
   return (
-    <div className="bg-gray-800 p-6 border border-gray-800 ">
+    <div className="bg-gray-800 p-6 border border-gray-800 " id="about-builder">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading with Gradient Accent Line */}
         <div className="flex items-center mb-6">
           <div className="w-1.5 h-8 bg-gradient-to-b from-purple-600 to-indigo-600 rounded-full mr-3"></div>
-          <h2 className="text-2xl font-bold text-white">{heading}</h2>
+          <h2 className="text-4xl font-bold text-white">{heading}</h2>
         </div>
 
         {/* Content Area with Custom Scrollable Container */}

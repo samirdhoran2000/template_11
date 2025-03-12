@@ -128,7 +128,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#property-details"
+                  href="#about-builder"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
                 >
                   Why Choose Us
