@@ -104,7 +104,7 @@ const Amenities = () => {
 
   return (
     <>
-      <div className="bg-gray-900 p-8 rounded-lg">
+      <div className="bg-gray-900 p-8 rounded-lg" id="amenities">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-2">
             {heading || "Premium Amenities"}

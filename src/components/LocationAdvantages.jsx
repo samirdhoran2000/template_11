@@ -32,25 +32,46 @@ const LocationAdvantages = () => {
   const closeDialog = () => setIsOpen(false);
 
   // Map location names to corresponding icons
-  const getLocationIcon = (locationName) => {
-    const iconMap = {
-      "PUNE - BANGALORE": <LocateFixed size={24} className="text-purple-400" />,
-      "Metro Station": <Train size={24} className="text-purple-400" />,
-      "Balewadi Stadium": <Building size={24} className="text-purple-400" />,
-      "Phoenix Market City": (
-        <ShoppingBag size={24} className="text-purple-400" />
-      ),
-      Hinjewadi: <Briefcase size={24} className="text-purple-400" />,
-      "Pune University": (
-        <GraduationCap size={24} className="text-purple-400" />
-      ),
-      Shivajinagar: <Landmark size={24} className="text-purple-400" />,
-      "Pune Station": <TrainFront size={24} className="text-purple-400" />,
-      "Pune Airport": <Plane size={24} className="text-purple-400" />,
-    };
+  // const getLocationIcon = (locationName) => {
+  //   const iconMap = {
+  //     "PUNE - BANGALORE": <LocateFixed size={24} className="text-purple-400" />,
+  //     "Metro Station": <Train size={24} className="text-purple-400" />,
+  //     "Balewadi Stadium": <Building size={24} className="text-purple-400" />,
+  //     "Phoenix Market City": (
+  //       <ShoppingBag size={24} className="text-purple-400" />
+  //     ),
+  //     Hinjewadi: <Briefcase size={24} className="text-purple-400" />,
+  //     "Pune University": (
+  //       <GraduationCap size={24} className="text-purple-400" />
+  //     ),
+  //     Shivajinagar: <Landmark size={24} className="text-purple-400" />,
+  //     "Pune Station": <TrainFront size={24} className="text-purple-400" />,
+  //     "Pune Airport": <Plane size={24} className="text-purple-400" />,
+  //   };
+
+  //   return (
+  //     iconMap[locationName] || <MapPin size={24} className="text-purple-400" />
+  //   );
+  // };
+  const getLocationIcon = () => {
+    // const iconMap = {
+    //   "PUNE - BANGALORE": <LocateFixed size={24} className="text-purple-400" />,
+    //   "Metro Station": <Train size={24} className="text-purple-400" />,
+    //   "Balewadi Stadium": <Building size={24} className="text-purple-400" />,
+    //   "Phoenix Market City": (
+    //     <ShoppingBag size={24} className="text-purple-400" />
+    //   ),
+    //   Hinjewadi: <Briefcase size={24} className="text-purple-400" />,
+    //   "Pune University": (
+    //     <GraduationCap size={24} className="text-purple-400" />
+    //   ),
+    //   Shivajinagar: <Landmark size={24} className="text-purple-400" />,
+    //   "Pune Station": <TrainFront size={24} className="text-purple-400" />,
+    //   "Pune Airport": <Plane size={24} className="text-purple-400" />,
+    // };
 
     return (
-      iconMap[locationName] || <MapPin size={24} className="text-purple-400" />
+      <MapPin size={24} className="text-purple-400" />
     );
   };
 
