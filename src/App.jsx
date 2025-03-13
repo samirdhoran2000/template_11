@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-
+import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 
 import BlogContent from "./components/BlogContent";
@@ -31,7 +31,7 @@ function App() {
       console.log("Error loading SEO data:", error);
       // Continue rendering the app even if SEO data fails to load
     }
-  return (
+  return (<HelmetProvider>
     <>
       <Router>
         <Routes>
@@ -44,6 +44,7 @@ function App() {
         <Footer />
       </Router>
     </>
+    </HelmetProvider>
   );
 }
 
