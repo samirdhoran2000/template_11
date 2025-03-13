@@ -33,7 +33,7 @@ const BlogCard = ({ blog }) => {
   };
 
   return (
-    <div className="bg-gray-800/60 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-all duration-300 h-full flex flex-col">
+    <div className="bg-gray-900/60 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-all duration-300 h-full flex flex-col">
       {/* Blog Image */}
       <div className="h-48 overflow-hidden relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70 z-10"></div>
@@ -174,7 +174,7 @@ const Blogs = () => {
   }
 
   return (
-    <div id="blogs-section" className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+    <div id="blogs-section" className="bg-gray-800 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

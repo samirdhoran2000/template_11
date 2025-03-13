@@ -85,7 +85,7 @@ const Footer = () => {
   const { social_icons, g_setting } = footerData;
 
   return (
-    <footer className="bg-gray-800 text-gray-300 border-t border-gray-800">
+    <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
       {/* Main footer section with all elements in one row */}
       <div className="container mx-auto px-6 py-6 max-w-7xl">
         <div className="flex flex-wrap md:flex-nowrap items-start justify-between gap-6">

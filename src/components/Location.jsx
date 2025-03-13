@@ -73,7 +73,7 @@ const Location = () => {
   }
 
   return (
-    <div className="bg-gray-900 p-4 sm:p-8" id="location">
+    <div className="bg-gray-800 p-4 sm:p-8" id="location">
       <div className="mb-10 flex flex-col items-center">
         <div className="flex items-center gap-3 mb-3">
           <MapIcon size={28} className="text-purple-400" />
