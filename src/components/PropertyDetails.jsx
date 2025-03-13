@@ -188,19 +188,6 @@ const PropertyDetails = () => {
               </button>
               <button
                 onClick={() => {
-                  setActiveTab("location");
-                  window.location.hash = "location";
-                }}
-                className={`py-4 px-3 font-medium text-sm border-b-2 ${
-                  activeTab === "location"
-                    ? "border-purple-500 text-purple-400"
-                    : "border-transparent text-gray-400 hover:text-gray-300"
-                } transition-colors duration-200`}
-              >
-                Location
-              </button>
-              <button
-                onClick={() => {
                   setActiveTab("gallery");
                   window.location.hash = "gallery";
                 }}
@@ -212,6 +199,20 @@ const PropertyDetails = () => {
               >
                 Gallery
               </button>
+              <button
+                onClick={() => {
+                  setActiveTab("location");
+                  window.location.hash = "location";
+                }}
+                className={`py-4 px-3 font-medium text-sm border-b-2 ${
+                  activeTab === "location"
+                    ? "border-purple-500 text-purple-400"
+                    : "border-transparent text-gray-400 hover:text-gray-300"
+                } transition-colors duration-200`}
+              >
+                Location
+              </button>
+              
             </nav>
           </div>
 
