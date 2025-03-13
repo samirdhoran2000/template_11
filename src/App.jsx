@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 import { useSeoData } from "./hooks/useSeoData";
 import { Loader } from "lucide-react";
+import SeoTags from "./components/SeoTags";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       // Continue rendering the app even if SEO data fails to load
     }
   return (<HelmetProvider>
+    <SeoTags/>
     <>
       <Router>
         <Routes>
