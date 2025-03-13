@@ -18,7 +18,7 @@ const AboutBuilder = ({ heading='About Builder', htmlContent, maxHeight = "300px
     }
   };
 
-  return (
+  return (htmlContent &&
     <div className="bg-gray-800 p-6 border border-gray-800 " id="about-builder">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading with Gradient Accent Line */}

@@ -120,7 +120,7 @@ const PropertyDetails = () => {
     <>
       <AboutBuilder
         heading={propertyData?.about_builder_title}
-        htmlContent={propertyData?.property_description}
+        htmlContent={propertyData?.property_specification}
       />
       <div className="min-h-screen bg-gray-900 text-gray-100">
         {/* Hero Section */}
@@ -212,7 +212,6 @@ const PropertyDetails = () => {
               >
                 Location
               </button>
-              
             </nav>
           </div>
 
