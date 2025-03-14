@@ -1,12 +1,31 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import { createHtmlPlugin } from 'vite-plugin-html';
+import fs from 'fs';
 
-// https://vite.dev/config/
+// Read and parse SEO data from seodata.json
+const seoData = JSON.parse(fs.readFileSync('./seodata.json', 'utf-8'));
+
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  build: {
-    outDir: "build",
-  },
+  plugins: [
+    react(),
+    tailwindcss(),
+    createHtmlPlugin({
+      inject: {
+        data: {
+          title: seoData.data.title || 'Default Title',
+          description: seoData.data.meta_description || 'Default Description',
+          keywords: seoData.data.keywords || '',
+          og_title: seoData.data.og_title || '',
+          og_description: seoData.data.og_description || '',
+          og_image: seoData.data.og_image || '',
+          og_type: seoData.data.og_type || '',
+          favicon: seoData.data.favicon || '',
+          robots:
+            seoData.data.status === 'Active' ? 'index, follow' : 'noindex, nofollow',
+        },
+      },
+    }),
+  ],
 });
-

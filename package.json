@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && react-snap",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "reactSnap": {
-  "inlineCss": true,
-  "puppeteerArgs": ["--no-sandbox"],
-  "publicPath": "./build"
-},
+    "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox"
+    ],
+    "publicPath": "./build"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.2",
@@ -23,7 +25,8 @@
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.3.0",
     "react-snap": "^1.23.0",
-    "tailwindcss": "^4.0.12"
+    "tailwindcss": "^4.0.12",
+    "vite-plugin-html": "^3.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
