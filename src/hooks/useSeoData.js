@@ -1,89 +1,66 @@
-// First, let's create a custom hook to fetch the SEO data
-
 import { useState, useEffect } from "react";
-import config from "../../config";
+import seoData from "../../public/seodata.json"; // Directly import static SEO data
 
 export function useSeoData() {
-  const [seoData, setSeoData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchSeoData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${config.API_URL}/seo-detail?website=${config.SLUG_URL}`
-        );
+    try {
+      // Simulate an async operation (if needed)
+      setLoading(true);
 
-        if (!response.ok) {
-          throw new Error(`Failed to fetch SEO data: ${response.status}`);
+      if (seoData.success) {
+        // Update the document title
+        document.title = seoData.data.title || "SMP Amberwood";
+
+        // Update meta description
+        updateMetaTag("description", seoData.data.meta_description);
+
+        // Update keywords
+        updateMetaTag("keywords", seoData.data.keywords);
+
+        // Update favicon
+        if (seoData.data.favicon) {
+          const link =
+            document.querySelector('link[rel="icon"]') ||
+            document.createElement("link");
+          link.type = "image/x-icon";
+          link.rel = "icon";
+          link.href = seoData.data.favicon;
+          if (!document.querySelector('link[rel="icon"]')) {
+            document.head.appendChild(link);
+          }
         }
 
-        const data = await response.json();
+        // Update Open Graph tags
+        updateMetaTag("og:title", seoData.data.og_title);
+        updateMetaTag("og:description", seoData.data.og_description);
+        updateMetaTag("og:image", seoData.data.og_image);
+        updateMetaTag("og:type", seoData.data.og_type || "website");
 
-        if (data.success) {
-          setSeoData(data.data);
-
-          // Update the document title
-          document.title = data.data.title || "SMP Amberwood";
-
-          // Update meta description
-          updateMetaTag("description", data.data.meta_description);
-
-          // Update keywords
-          updateMetaTag("keywords", data.data.keywords);
-
-          // Update favicon
-          if (data.data.favicon) {
-            const link =
-              document.querySelector('link[rel="icon"]') ||
-              document.createElement("link");
-            link.type = "image/x-icon";
-            link.rel = "icon";
-            link.href = data.data.favicon;
-            if (!document.querySelector('link[rel="icon"]')) {
-              document.head.appendChild(link);
-            }
-          }
-
-          // Update Open Graph tags
-          updateMetaTag("og:title", data.data.og_title);
-          updateMetaTag("og:description", data.data.og_description);
-          updateMetaTag("og:image", data.data.og_image);
-          updateMetaTag("og:type", data.data.og_type || "website");
-
-          // Add JSON-LD script
-          if (data.data.script_1) {
-            addJsonLdScript(data.data.script_1, "seo-jsonld-1");
-          }
-
-          if (data.data.script_2) {
-            addJsonLdScript(data.data.script_2, "seo-jsonld-2");
-          }
-        } else {
-          throw new Error("API returned unsuccessful response");
+        // Add JSON-LD scripts
+        if (seoData.data.script_1) {
+          addJsonLdScript(seoData.data.script_1, "seo-jsonld-1");
         }
-      } catch (err) {
-        setError(err.message);
-        console.error("Error fetching SEO data:", err);
-      } finally {
-        setLoading(false);
+        if (seoData.data.script_2) {
+          addJsonLdScript(seoData.data.script_2, "seo-jsonld-2");
+        }
+      } else {
+        throw new Error("Invalid SEO data format");
       }
-    };
-
-    fetchSeoData();
-
-    // return () => {
-    //   // Cleanup function if needed
-    // };
+    } catch (err) {
+      setError(err.message);
+      console.error("Error loading SEO data:", err);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   // Helper function to update meta tags
   const updateMetaTag = (name, content) => {
     if (!content) return;
 
-    // Check if meta tag already exists
     let metaTag =
       document.querySelector(`meta[name="${name}"]`) ||
       document.querySelector(`meta[property="${name}"]`);
@@ -104,7 +81,6 @@ export function useSeoData() {
   // Helper function to add JSON-LD scripts
   const addJsonLdScript = (jsonContent, id) => {
     try {
-      // Remove existing script if it exists
       const existingScript = document.getElementById(id);
       if (existingScript) {
         existingScript.remove();
@@ -120,5 +96,5 @@ export function useSeoData() {
     }
   };
 
-  return { seoData, loading, error };
+  return { seoData: seoData.data, loading, error };
 }

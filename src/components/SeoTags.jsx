@@ -10,7 +10,7 @@ const SeoTags = () => {
     const fetchSeoData = async () => {
       try {
         const response = await fetch(
-          `${config.API_URL}/seo-detail?website=${config.SLUG_URL}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/seodata.json`
         );
         const result = await response.json();
         if (result.success) {
