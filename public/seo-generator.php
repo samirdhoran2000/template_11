@@ -47,9 +47,17 @@ $mappedData = [
 ];
 
 // Save to `seodata.json`
-$filePath = __DIR__ . '/seodata.json';
-if (file_put_contents($filePath, json_encode($mappedData, JSON_PRETTY_PRINT))) {
-    echo json_encode(["success" => true, "message" => "SEO data saved successfully"]);
+$localFilePath = __DIR__ . '/seodata.json';
+$destinationPath = '/home/q2g3j98i4rdo/seo_websites_templates/bih_seo_template_11/public/seodata.json';
+
+// Write JSON file locally
+if (file_put_contents($localFilePath, json_encode($mappedData, JSON_PRETTY_PRINT))) {
+    // Copy to destination
+    if (copy($localFilePath, $destinationPath)) {
+        echo json_encode(["success" => true, "message" => "SEO data saved and copied successfully"]);
+    } else {
+        echo json_encode(["error" => "Failed to copy SEO data to the destination"]);
+    }
 } else {
     echo json_encode(["error" => "Failed to save SEO data"]);
 }
