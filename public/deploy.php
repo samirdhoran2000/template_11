@@ -51,7 +51,8 @@ logMessage("Project directory found: $projectDir");
 // Set environment variables
 putenv("VITE_SLUG_URL=$domain");
 putenv("VITE_API_URL=https://www.buyindiahomes.in/api");
-logMessage("Set environment variables: VITE_SLUG_URL=$domain");
+putenv("RUST_BACKTRACE=1");  // Enable Rust backtrace
+logMessage("Set environment variables: VITE_SLUG_URL=$domain, RUST_BACKTRACE=1");
 
 // Change to project directory
 if (!chdir($projectDir)) {
@@ -77,9 +78,9 @@ if (!file_exists($nodePath) || !file_exists($npmPath)) {
 logMessage("Using Node.js at: $nodePath");
 logMessage("Using npm at: $npmPath");
 
-// Start build process
+// Start build process with backtrace enabled
 logMessage("Starting build process...");
-exec("$npmPath run build 2>&1", $output, $returnVar);
+exec("export RUST_BACKTRACE=1 && $npmPath run build 2>&1", $output, $returnVar);
 
 // Log build output
 foreach ($output as $line) {
