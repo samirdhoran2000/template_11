@@ -156,7 +156,7 @@ $sitemap = "https://$domain/sitemap-generator.php";
 logMessage("Executing SiteMap generator: $sitemap");
 
 $sitemapResponse = file_get_contents($sitemap);
-logMessage("SEO Generator Response: $sitemapResponse");
+logMessage("SiteMap Generator Response: $sitemapResponse");
 
 logMessage("Build completed successfully.");
 
