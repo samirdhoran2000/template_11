@@ -34,6 +34,13 @@ if (!isset($_GET['templateid']) || !is_numeric($_GET['templateid'])) {
 $templateId = intval($_GET['templateid']); 
 logMessage("Received templateId: $templateId");
 
+// / Execute seo-generator.php before build
+$seoGeneratorUrl = "https://$domain/seo-generator.php";
+logMessage("Executing SEO generator: $seoGeneratorUrl");
+
+$seoResponse = file_get_contents($seoGeneratorUrl);
+logMessage("SEO Generator Response: $seoResponse");
+
 // Define directory structure
 $baseTemplateDir = "/home/q2g3j98i4rdo/seo_websites_templates";
 $projectDir = "$baseTemplateDir/bih_seo_template_$templateId";
