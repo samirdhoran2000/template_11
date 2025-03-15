@@ -1,10 +1,10 @@
 <?php
 header('Content-Type: application/json');
 
-if (!isset($_GET['domain']) || empty($_GET['domain'])) {
-    echo json_encode(["error" => "Domain parameter is required"]);
-    exit;
-}
+// if (!isset($_GET['domain']) || empty($_GET['domain'])) {
+//     echo json_encode(["error" => "Domain parameter is required"]);
+//     exit;
+// }
 
 $domain = $_SERVER['HTTP_HOST'];
 $apiUrl = "https://www.buyindiahomes.in/api/seo-detail?website=" . urlencode($domain);
