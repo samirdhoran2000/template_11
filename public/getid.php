@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: application/json');
-
 function getTemplateId($domain) {
     $apiUrl = "https://www.buyindiahomes.in/api/template?website=" . urlencode($domain);
 
@@ -21,9 +19,4 @@ function getTemplateId($domain) {
     return $data['templateId'] ?? null;
 }
 
-// If called directly, return JSON response
-if (isset($_GET['domain'])) {
-    $templateId = getTemplateId($_GET['domain']);
-    echo json_encode(["templateId" => $templateId]);
-}
 ?>
