@@ -4,11 +4,11 @@
 $domain = $_SERVER['HTTP_HOST']; // Extracts the domain from the request
 
 // Validate and fetch template ID from request
-if (!isset($_GET['templateId']) || !is_numeric($_GET['templateId'])) {
+if (!isset($_GET['templateid']) || !is_numeric($_GET['templateid'])) {
     die("Error: Missing or invalid templateId parameter.");
 }
 
-$templateId = intval($_GET['templateId']); // Convert to integer for safety
+$templateId = intval($_GET['templateid']); // Convert to integer for safety
 
 // Define the base directory structure
 $baseTemplateDir = "/home/q2g3j98i4rdo/seo_websites_templates";
