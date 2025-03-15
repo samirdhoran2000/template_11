@@ -66,6 +66,7 @@ $nvmDir = "/home/q2g3j98i4rdo/.nvm";
 $nodeBin = "$nvmDir/versions/node/v22.9.0/bin";
 $path = "$nodeBin:" . getenv('PATH');
 putenv("PATH=$path");
+putenv("RAYON_NUM_THREADS=1");
 
 // Verify Node.js and npm existence
 $nodePath = "$nodeBin/node";
