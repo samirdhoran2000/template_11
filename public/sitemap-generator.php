@@ -37,11 +37,11 @@ if (!isset($propertyData['property_details']) || !is_array($propertyData['proper
 // Start XML structure
 $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
 $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . PHP_EOL;
-$latestUpdate = max(
-    array_column($blogData['blogs'], 'updated_at'),
-    array_column($propertyData['property_details'], 'updated_at')
-);
-$homepageLastMod = date('Y-m-d', strtotime($latestUpdate));
+// $latestUpdate = max(
+//     array_column($blogData['blogs'], 'updated_at'),
+//     array_column($propertyData['property_details'], 'updated_at')
+// );
+$homepageLastMod = date('Y-m-d');
 
 // Add homepage
 $sitemap .= "
@@ -59,7 +59,7 @@ foreach ($blogData['blogs'] as $blog) {
         continue; // Skip if post_slug is missing
     }
     
-    $lastMod = date('Y-m-d', strtotime($blog['updated_at']));
+    $lastMod = date('Y-m-d');
 
     $sitemap .= "
         <url>
@@ -76,7 +76,7 @@ foreach ($propertyData['property_details'] as $property) {
     if (!isset($property['property_slug']) || strpos($property['property_slug'], '.com') !== false) {
         continue; // Skip if property_slug is missing or contains ".com"
     }
-    $lastMod = date('Y-m-d', strtotime($property['updated_at']));
+    $lastMod = date('Y-m-d');
     $sitemap .= "
         <url>
             <loc>https://$finalDomain/studios/{$property['property_slug']}</loc>
