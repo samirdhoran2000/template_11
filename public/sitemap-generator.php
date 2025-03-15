@@ -1,7 +1,9 @@
 <?php
 
 // Load environment variables
-$envDomain = getenv('VITE_SLUG_URL'); // Get domain from env variable
+// $envDomain = getenv('VITE_SLUG_URL'); // Get domain from env variable
+$envDomain = $_SERVER['HTTP_HOST'];
+
 define('DEFAULT_DOMAIN', $envDomain ?: 'yourdefaultdomain.com'); // Fallback if not set
 
 // API URLs (Replace with actual endpoints)
