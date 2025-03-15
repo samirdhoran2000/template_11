@@ -6,7 +6,7 @@ if (!isset($_GET['domain']) || empty($_GET['domain'])) {
     exit;
 }
 
-$domain = $_GET['domain'];
+$domain = $_SERVER['HTTP_HOST'];
 $apiUrl = "https://www.buyindiahomes.in/api/seo-detail?website=" . urlencode($domain);
 
 $ch = curl_init();
