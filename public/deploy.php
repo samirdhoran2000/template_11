@@ -48,7 +48,9 @@ logMessage("Changed directory to $projectDir");
 
 // Run the React build command
 logMessage("Starting build process...");
-exec("~/.nvm/versions/node/v22.9.0/bin/npm run build 2>&1", $output, $returnVar);
+$npmPath = "/home/q2g3j98i4rdo/.nvm/versions/node/v22.9.0/bin/npm";
+$buildCommand = "$npmPath run build";
+exec($buildCommand . " 2>&1", $output, $returnVar);
 
 if ($returnVar !== 0) {
     logMessage("Error: Build failed! Check logs for details.");
