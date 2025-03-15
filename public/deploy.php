@@ -34,6 +34,10 @@ if (!is_dir($projectDir)) {
 
 logMessage("Project directory found: $projectDir");
 
+putenv("VITE_SLUG_URL=$domain");
+logMessage("Set environment variables: VITE_SLUG_URL=$domain");
+
+
 // Change to the project directory
 if (!chdir($projectDir)) {
     logMessage("Error: Could not change directory to $projectDir");
@@ -44,7 +48,7 @@ logMessage("Changed directory to $projectDir");
 
 // Run the React build command
 logMessage("Starting build process...");
-exec("npm run build 2>&1", $output, $returnVar);
+exec("~/.nvm/versions/node/v22.9.0/bin/npm run build 2>&1", $output, $returnVar);
 
 if ($returnVar !== 0) {
     logMessage("Error: Build failed! Check logs for details.");
