@@ -59,7 +59,7 @@ foreach ($blogData['blogs'] as $blog) {
         continue; // Skip if post_slug is missing
     }
     
-    $lastMod = date('Y-m-d');
+    $lastMod = date('Y-m-d', strtotime($blog['updated_at']));
 
     $sitemap .= "
         <url>
@@ -76,7 +76,7 @@ foreach ($propertyData['property_details'] as $property) {
     if (!isset($property['property_slug']) || strpos($property['property_slug'], '.com') !== false) {
         continue; // Skip if property_slug is missing or contains ".com"
     }
-    $lastMod = date('Y-m-d');
+    $lastMod = date('Y-m-d', strtotime($property['updated_at']));
     $sitemap .= "
         <url>
             <loc>https://$finalDomain/studios/{$property['property_slug']}</loc>
