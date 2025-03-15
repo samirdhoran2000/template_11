@@ -31,18 +31,18 @@ logMessage("Request received from domain: $domain");
 //     exit;
 // }
 
-include_once 'getid.php';
+// include_once 'getid.php';
 
-// Fetch template ID
-$templateId = getTemplateId($domain);
+// // Fetch template ID
+// $templateId = getTemplateId($domain);
 
-if (!$templateId) {
-    echo json_encode(["error" => "Failed to fetch template ID"]);
-    exit;
-}
+// if (!$templateId) {
+//     echo json_encode(["error" => "Failed to fetch template ID"]);
+//     exit;
+// }
 
-$templateId = $templateId ;
-// $templateId = intval($_GET['templateid']); 
+// $templateId = $templateId ;
+$templateId = intval($_GET['templateid']); 
 logMessage("Received templateId: $templateId");
 
 // / Execute seo-generator.php before build
