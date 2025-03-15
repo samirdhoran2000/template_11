@@ -20,6 +20,45 @@ function logMessage($message, $isError = false) {
     flush();
 }
 
+// Get token from request parameter
+$token = $_GET['token'] ?? null;
+
+if (!$token) {
+    http_response_code(401);
+    die("Token is required.");
+}
+
+// Validate token via API call
+function validateToken($token) {
+    $url = "https://www.buyindiahomes.in/api/validatetoken?token=" . urlencode($token);
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode !== 200) {
+        return false;
+    }
+
+    $data = json_decode($response, true);
+    return isset($data['message']) && $data['message'] === "Token is valid";
+}
+
+// Check if token is valid
+if (!validateToken($token)) {
+    http_response_code(403);
+    die("Invalid Token.");
+}
+
+logMessage("Token validation successful");
+
+// Continue with the rest of the script...
+
 // Start logging
 ob_start();
 $domain = $_SERVER['HTTP_HOST']; 
