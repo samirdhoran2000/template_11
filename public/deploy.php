@@ -52,6 +52,8 @@ logMessage("Executing SEO generator: $seoGeneratorUrl");
 $seoResponse = file_get_contents($seoGeneratorUrl);
 logMessage("SEO Generator Response: $seoResponse");
 
+
+
 // Define directory structure
 $baseTemplateDir = "/home/q2g3j98i4rdo/seo_websites_templates";
 $projectDir = "$baseTemplateDir/bih_seo_template_$templateId";
@@ -111,6 +113,11 @@ if ($returnVar !== 0) {
     logMessage("Error: Build failed! Check logs for details.", true);
     exit;
 }
+$sitemap = "https://$domain/sitemap-generator.php";
+logMessage("Executing SiteMap generator: $sitemap");
+
+$sitemapResponse = file_get_contents($sitemap);
+logMessage("SEO Generator Response: $sitemapResponse");
 
 logMessage("Build completed successfully.");
 
