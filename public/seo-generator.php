@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $domain = $_SERVER['HTTP_HOST'];
 
 // Include the get-template function
-include_once 'get-template.php';
+include_once 'getid.php';
 
 // Fetch template ID
 $templateId = getTemplateId($domain);
