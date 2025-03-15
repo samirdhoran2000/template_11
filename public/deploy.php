@@ -26,12 +26,23 @@ $domain = $_SERVER['HTTP_HOST'];
 logMessage("Request received from domain: $domain");
 
 // Validate and fetch template ID
-if (!isset($_GET['templateid']) || !is_numeric($_GET['templateid'])) {
-    logMessage("Error: Missing or invalid templateId parameter.", true);
+// if (!isset($_GET['templateid']) || !is_numeric($_GET['templateid'])) {
+//     logMessage("Error: Missing or invalid templateId parameter.", true);
+//     exit;
+// }
+
+include_once 'getid.php';
+
+// Fetch template ID
+$templateId = getTemplateId($domain);
+
+if (!$templateId) {
+    echo json_encode(["error" => "Failed to fetch template ID"]);
     exit;
 }
 
-$templateId = intval($_GET['templateid']); 
+$templateId = $templateId ;
+// $templateId = intval($_GET['templateid']); 
 logMessage("Received templateId: $templateId");
 
 // / Execute seo-generator.php before build
