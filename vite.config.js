@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+// import prerender from 'vite-plugin-prerender'; 
 import tailwindcss from '@tailwindcss/vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import fs from 'fs';
-import prerender from 'vite-plugin-prerender';
+
 // Read and parse SEO data from seodata.json
 const seoData = JSON.parse(fs.readFileSync('./seodata.json', 'utf-8'));
 
@@ -32,10 +33,6 @@ export default defineConfig({
           
         },
       },
-    }),
-    prerender({
-      staticDir: 'dist',
-      routes: ['/'] // Add your routes here
     })
   ],
   define: {
