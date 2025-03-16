@@ -9,6 +9,7 @@ import fs from 'fs';
 const seoData = JSON.parse(fs.readFileSync('./seodata.json', 'utf-8'));
 
 export default defineConfig({
+  
   plugins: [
     react(),
     tailwindcss(),
