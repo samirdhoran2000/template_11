@@ -33,6 +33,10 @@ export default defineConfig({
         },
       },
     }),
+    prerender({
+      staticDir: 'dist',
+      routes: ['/'] // Add your routes here
+    })
   ],
   define: {
   'import.meta.env.VITE_H1': JSON.stringify(seoData.data.title || ''),
