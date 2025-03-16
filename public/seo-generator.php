@@ -1,28 +1,38 @@
 <?php
 header('Content-Type: application/json');
 
-if (!isset($_GET['domain']) || empty($_GET['domain'])) {
-    echo json_encode(["error" => "Domain parameter is required"]);
+// Get domain dynamically
+$domain = $_SERVER['HTTP_HOST'];
+
+// Include the get-template function
+include_once 'getid.php';
+
+// Fetch template ID
+$templateId = getTemplateId($domain);
+
+if (!$templateId) {
+    echo json_encode(["error" => "Failed to fetch template ID"]);
     exit;
 }
 
-$domain = $_GET['domain'];
-$apiUrl = "https://www.buyindiahomes.in/api/seo-detail?website=" . urlencode($domain);
+// Define API URL for fetching SEO details
+$seoApiUrl = "https://www.buyindiahomes.in/api/seo-detail?website=" . urlencode($domain);
 
+// Fetch SEO data using cURL
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_URL, $seoApiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-$response = curl_exec($ch);
+$seoResponse = curl_exec($ch);
 curl_close($ch);
 
-if ($response === false) {
+if (!$seoResponse) {
     echo json_encode(["error" => "Failed to fetch SEO data"]);
     exit;
 }
 
-$seoData = json_decode($response, true);
+$seoData = json_decode($seoResponse, true);
 
 if (!$seoData || !isset($seoData['data'])) {
     echo json_encode(["error" => "Invalid API response"]);
@@ -48,17 +58,28 @@ $mappedData = [
 
 // Save to `seodata.json`
 $localFilePath = __DIR__ . '/seodata.json';
-$destinationPath = '/home/q2g3j98i4rdo/seo_websites_templates/bih_seo_template_11/public/seodata.json';
+
+// Define dynamic destination paths based on `templateId`
+$destinationBasePath = "/home/q2g3j98i4rdo/seo_websites_templates/bih_seo_template_$templateId";
+$destinationPath1 = "$destinationBasePath/public/seodata.json";
+$destinationPath2 = "$destinationBasePath/seodata.json";
 
 // Write JSON file locally
 if (file_put_contents($localFilePath, json_encode($mappedData, JSON_PRETTY_PRINT))) {
-    // Copy to destination
-    if (copy($localFilePath, $destinationPath)) {
-        echo json_encode(["success" => true, "message" => "SEO data saved and copied successfully"]);
+    // Copy to first destination
+    if (copy($localFilePath, $destinationPath1)) {
+        echo json_encode(["success" => true, "message" => "SEO data saved and copied successfully to public"]);
     } else {
-        echo json_encode(["error" => "Failed to copy SEO data to the destination"]);
+        echo json_encode(["error" => "Failed to copy SEO data to public directory"]);
+    }
+
+    // Copy to second destination
+    if (copy($localFilePath, $destinationPath2)) {
+        echo json_encode(["success" => true, "message" => "SEO data saved and copied successfully to template root"]);
+    } else {
+        echo json_encode(["error" => "Failed to copy SEO data to template root"]);
     }
 } else {
-    echo json_encode(["error" => "Failed to save SEO data"]);
+    echo json_encode(["error" => "Failed to save SEO data locally"]);
 }
 ?>

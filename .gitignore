@@ -25,3 +25,7 @@ dist-ssr
 *.sw?
 *env*
 *temp*
+
+
+public/seodata.json
+seodata.json
