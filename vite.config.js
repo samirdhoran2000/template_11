@@ -28,8 +28,7 @@ export default defineConfig({
           script_2: seoData.data.script_2 || '',
           domain: seoData.data.domain || '',
           h1_text :  seoData.data.title || 'Default Title',
-          h2_text :  seoData.data.title || 'Default Title',
-          
+          h2_text :  seoData.data.meta_description || 'Default Title',    
           
         },
       },
