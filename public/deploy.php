@@ -158,6 +158,14 @@ logMessage("Executing SiteMap generator: $sitemap");
 $sitemapResponse = file_get_contents($sitemap);
 logMessage("SiteMap Generator Response: $sitemapResponse");
 
+
+$htaccess = "https://$domain/generate-htaccess.php";
+logMessage("Executing htacccess generator: $htaccess");
+
+$htacccessResponse = file_get_contents($htaccess);
+logMessage("htacccess Generator Response: $htacccessResponse");
+
+
 logMessage("Build completed successfully.");
 
 // Verify build directory
