@@ -16,12 +16,12 @@ import Location from '../components/Location'
 const HomePage = () => {
   return (
       <>
-      <h1 style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+      {/* <h1 style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
         {import.meta.env.VITE_H1}
       </h1>
       <h2 style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
         {import.meta.env.VITE_H2}
-      </h2>
+      </h2> */}
           <PropertyHeader />
           <ReraInformation />
           <PropertyDetails />
