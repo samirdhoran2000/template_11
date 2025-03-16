@@ -51,6 +51,7 @@ $mappedData = [
         "og_image" => $seoData['data']['og_image'] ?? '',
         "og_type" => $seoData['data']['og_type'] ?? '',
         "domain" => $seoData['data']['domain'] ?? '',
+        "property_name" => $seoData['data']['property_name'] ?? '',
         "status" => $seoData['data']['status'] ?? '',
         "script_1" => $seoData['data']['script_1'] ?? '',
         "script_2" => $seoData['data']['script_2'] ?? '',
