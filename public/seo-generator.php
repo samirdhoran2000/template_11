@@ -50,9 +50,14 @@ $mappedData = [
         "og_description" => $seoData['data']['og_description'] ?? '',
         "og_image" => $seoData['data']['og_image'] ?? '',
         "og_type" => $seoData['data']['og_type'] ?? '',
+        "domain" => $seoData['data']['domain'] ?? '',
         "status" => $seoData['data']['status'] ?? '',
         "script_1" => $seoData['data']['script_1'] ?? '',
-        "script_2" => $seoData['data']['script_2'] ?? ''
+        "script_2" => $seoData['data']['script_2'] ?? '',
+        "h1" => $seoData['data']['h1'] ?? '',
+        "h2" => $seoData['data']['h2'] ?? '',
+        "about_builder" => $seoData['data']['about_builder'] ?? '',
+        "property_detail" => $seoData['data']['property_detail'] ?? ''
     ]
 ];
 

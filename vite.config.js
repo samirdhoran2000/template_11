@@ -26,6 +26,7 @@ export default defineConfig({
             seoData.data.status === 'Active' ? 'index, follow' : 'noindex, nofollow',
           script_1: seoData.data.script_1 || '',
           script_2: seoData.data.script_2 || '',
+          domain: seoData.data.domain || ''
         },
       },
     }),

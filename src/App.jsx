@@ -22,6 +22,7 @@ function App() {
         <meta property="og:image" content={seoData.data.og_image} />
         <meta property="og:type" content={seoData.data.og_type} />
         <link rel="icon" href={seoData.data.favicon} />
+        <link rel="canonical" href={seoData.data.domain} />
         <script type="application/ld+json">
           {seoData.data.script_1}
         </script>
