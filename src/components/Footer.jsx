@@ -203,6 +203,9 @@ const Footer = () => {
           <div className="text-gray-500 text-xs mb-4">
             {g_setting.footer_disclamer}
           </div>
+          <div className="text-gray-500 text-xs mb-4">
+            Agent Rera: {g_setting.footer_agent_rera}
+          </div>
 
           <div className="flex justify-between items-center">
             <div className="text-gray-500 text-xs">

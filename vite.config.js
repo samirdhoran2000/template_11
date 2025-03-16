@@ -26,7 +26,9 @@ export default defineConfig({
             seoData.data.status === 'Active' ? 'index, follow' : 'noindex, nofollow',
           script_1: seoData.data.script_1 || '',
           script_2: seoData.data.script_2 || '',
-          domain: seoData.data.domain || ''
+          domain: seoData.data.domain || '',
+          'import.meta.env.VITE_H1': JSON.stringify(seoData.data.title || ''),
+          'import.meta.env.VITE_H2': JSON.stringify( seoData.data.meta_description || ''),
         },
       },
     }),
