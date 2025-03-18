@@ -1,16 +1,142 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import {
   Loader,
   Maximize,
- 
-  
   ChevronLeft,
   ChevronRight,
   X,
   Camera,
 } from "lucide-react";
 import config from "../../config";
-// import Lightbox from "./Lightbox";
+
+// Separate Lightbox component that uses a portal
+const Lightbox = ({ images, currentIndex, setCurrentIndex, closeLightbox }) => {
+  const lightboxContentRef = useRef(null);
+  const selectedImage = images[currentIndex];
+
+  const goToPrevious = () => {
+    const newIndex = (currentIndex - 1 + images.length) % images.length;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = (currentIndex + 1) % images.length;
+    setCurrentIndex(newIndex);
+  };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (e.key === "ArrowRight") {
+        goToNext();
+      } else if (e.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex]);
+
+  // Handle global click event to close lightbox when clicking outside
+  useEffect(() => {
+    const handleGlobalClick = (e) => {
+      if (
+        lightboxContentRef.current &&
+        !lightboxContentRef.current.contains(e.target) &&
+        !e.target.closest(".lightbox-control")
+      ) {
+        closeLightbox();
+      }
+    };
+
+    // Add delay to prevent immediate closing
+    setTimeout(() => {
+      window.addEventListener("click", handleGlobalClick);
+    }, 100);
+
+    return () => {
+      window.removeEventListener("click", handleGlobalClick);
+    };
+  }, [closeLightbox]);
+
+  // Create the lightbox content
+  const lightboxContent = (
+    <div className="fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center">
+      {/* Main lightbox container */}
+      <div
+        ref={lightboxContentRef}
+        className="bg-gray-800 rounded-lg w-full max-w-3xl h-auto max-h-[90vh] flex flex-col"
+      >
+        {/* Prominently visible close button */}
+        <div className="absolute top-2 right-2 z-10">
+          <button
+            className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full lightbox-control flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Image viewer with navigation */}
+        <div className="flex-1 relative flex items-center justify-center overflow-hidden p-4">
+          <button
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/60 p-2 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 z-10 lightbox-control"
+            onClick={goToPrevious}
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <img
+            src={selectedImage.photo}
+            alt="Enlarged view"
+            className="max-h-[60vh] max-w-full object-contain rounded-lg"
+          />
+
+          <button
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/60 p-2 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 z-10 lightbox-control"
+            onClick={goToNext}
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Image counter */}
+        <div className="text-gray-300 bg-gray-800/60 px-4 py-2 flex items-center justify-center">
+          <Camera size={16} className="mr-2" />
+          <span>
+            Image {currentIndex + 1} of {images.length}
+          </span>
+        </div>
+
+        {/* Thumbnails */}
+        <div className="flex space-x-2 overflow-x-auto p-2 bg-gray-900">
+          {images.map((img, idx) => (
+            <div
+              key={img.id}
+              className={`w-12 h-12 flex-shrink-0 rounded-md overflow-hidden cursor-pointer border-2 ${
+                idx === currentIndex ? "border-purple-500" : "border-gray-700"
+              }`}
+              onClick={() => setCurrentIndex(idx)}
+            >
+              <img
+                src={img.photo}
+                alt={`Thumbnail ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  // Use React Portal to render the lightbox at the document body level
+  return ReactDOM.createPortal(lightboxContent, document.body);
+};
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
@@ -87,7 +213,7 @@ const Gallery = () => {
       </div>
 
       {/* Gallery Grid with fixed height and scroll */}
-      <div className="h-96 overflow-y-auto pr-2 custom-scrollbar">
+      <div className=" pr-2">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((image, index) => (
             <div
@@ -108,7 +234,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Lightbox Component */}
+      {/* Lightbox Component is now a portal and renders outside of this component */}
       {selectedImage && (
         <Lightbox
           images={images}
@@ -117,127 +243,6 @@ const Gallery = () => {
           closeLightbox={closeLightbox}
         />
       )}
-    </div>
-  );
-};const Lightbox = ({ images, currentIndex, setCurrentIndex, closeLightbox }) => {
-  const lightboxContentRef = useRef(null);
-  const selectedImage = images[currentIndex];
-
-  const goToPrevious = () => {
-    const newIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToNext = () => {
-    const newIndex = (currentIndex + 1) % images.length;
-    setCurrentIndex(newIndex);
-  };
-
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowLeft") {
-        goToPrevious();
-      } else if (e.key === "ArrowRight") {
-        goToNext();
-      } else if (e.key === "Escape") {
-        closeLightbox();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex]);
-
-  // Handle global click event to close lightbox when clicking outside
-  useEffect(() => {
-    const handleGlobalClick = (e) => {
-      if (
-        lightboxContentRef.current &&
-        !lightboxContentRef.current.contains(e.target) &&
-        !e.target.closest(".lightbox-control")
-      ) {
-        closeLightbox();
-      }
-    };
-
-    // Add delay to prevent immediate closing
-    setTimeout(() => {
-      window.addEventListener("click", handleGlobalClick);
-    }, 100);
-
-    return () => {
-      window.removeEventListener("click", handleGlobalClick);
-    };
-  }, [closeLightbox]);
-
-  return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-      {/* Container with half screen height */}
-      <div className="bg-gray-800 rounded-lg w-1/2 h-1/2 max-h-[50vh] relative flex flex-col">
-        {/* Prominently visible close button */}
-        <div className="absolute top-2 right-2 z-10">
-          <button
-            className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full lightbox-control flex items-center justify-center"
-            onClick={closeLightbox}
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        {/* Image viewer with navigation */}
-        <div
-          ref={lightboxContentRef}
-          className="flex-1 relative flex items-center justify-center overflow-hidden p-4"
-        >
-          <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/60 p-2 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 z-10 lightbox-control"
-            onClick={goToPrevious}
-          >
-            <ChevronLeft size={20} />
-          </button>
-
-          <img
-            src={selectedImage.photo}
-            alt="Enlarged view"
-            className="max-h-full max-w-full object-contain rounded-lg"
-          />
-
-          <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/60 p-2 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 z-10 lightbox-control"
-            onClick={goToNext}
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
-        {/* Image counter */}
-        <div className="text-gray-300 bg-gray-800/60 px-4 py-2 flex items-center justify-center">
-          <Camera size={16} className="mr-2" />
-          <span>
-            Image {currentIndex + 1} of {images.length}
-          </span>
-        </div>
-
-        {/* Thumbnails */}
-        <div className="flex space-x-2 overflow-x-auto p-2 bg-gray-900">
-          {images.map((img, idx) => (
-            <div
-              key={img.id}
-              className={`w-12 h-12 flex-shrink-0 rounded-md overflow-hidden cursor-pointer border-2 ${
-                idx === currentIndex ? "border-purple-500" : "border-gray-700"
-              }`}
-              onClick={() => setCurrentIndex(idx)}
-            >
-              <img
-                src={img.photo}
-                alt={`Thumbnail ${idx + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };
