@@ -397,7 +397,7 @@ const PropertyLayouts = () => {
                 className="max-w-full max-h-full object-contain"
               />
               <button
-                className="absolute top-4 right-4 p-2 bg-black/80 rounded-full text-white"
+                className="absolute top-8 right-16 p-2 bg-purple-500 rounded-full text-white"
                 onClick={() => setExpandedImage(null)}
               >
                 <ArrowLeft size={24} />

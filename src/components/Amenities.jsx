@@ -77,6 +77,15 @@ const Amenities = () => {
       "Solid Waste management": (
         <Recycle size={20} className="text-purple-400" />
       ),
+      "Free Wifi": <Wifi size={24} className="text-purple-400" />,
+      Amphitheater: <TentTree size={24} className="text-purple-400" />,
+      "Electical Vehical Charging Point": (
+        <Plug size={24} className="text-purple-400" />
+      ),
+      "Jogging Track": <Footprints size={24} className="text-purple-400" />,
+      "Mini Theater": <Theater size={24} className="text-purple-400" />,
+      Football: <Volleyball size={24} className="text-purple-400" />,
+      "Pet Play Area": <Dog size={24} className="text-purple-400" />,
     };
 
     return (
