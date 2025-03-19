@@ -12,6 +12,12 @@ import {
   Recycle,
   Loader,
   Volleyball,
+  Wifi,
+  TentTree,
+  Plug,
+  Theater,
+  Dog,
+  Footprints,
 } from "lucide-react";
 import { ContactDialog } from "./Contact";
 import config from '../../config'
@@ -77,7 +83,7 @@ const Amenities = () => {
       "Solid Waste management": (
         <Recycle size={20} className="text-purple-400" />
       ),
-      "Free Wifi": <Wifi size={24} className="text-purple-400" />,
+      "Free Wifi": <Wifi  size={24} className="text-purple-400" />,
       Amphitheater: <TentTree size={24} className="text-purple-400" />,
       "Electical Vehical Charging Point": (
         <Plug size={24} className="text-purple-400" />
