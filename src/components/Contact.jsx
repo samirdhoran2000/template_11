@@ -129,7 +129,14 @@ export const ContactDialog = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
       <div className="bg-gray-800 rounded-lg w-full max-w-md shadow-2xl animate-fadeIn">
         <div className="flex items-center justify-between p-5 border-b border-gray-700">
           <h3 className="text-xl font-semibold text-white">Contact Us</h3>
