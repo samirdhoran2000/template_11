@@ -82,6 +82,9 @@ const ReraInformation = () => {
     );
   }
 
+  if (!reraData && !reraData?.rera_id) return;
+
+
   return (
     <>
       <div className="bg-gray-900 py-16 px-4" id="about">
