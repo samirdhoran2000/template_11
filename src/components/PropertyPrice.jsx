@@ -61,7 +61,7 @@ const PropertyPriceTable = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://www.buyindiahomes.in/api/propert-details?website=ceratectower1o8balewadi.com"
+          `${config.API_URL}/propert-details?website=${config.SLUG_URL}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
