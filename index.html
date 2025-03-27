@@ -25,12 +25,18 @@
     <meta name="robots" content="<%= robots %>">
 
     <!-- Inject JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    <%- JSON.stringify(script_1) %>
-  </script>
-  <script type="application/ld+json">
-    <%- JSON.stringify(script_2) %>
-  </script>
+    <% if (script_1 && script_1 !== '{}') { %>
+      <script type="application/ld+json">
+        <%- script_1 %>
+      </script>
+      <% } %>
+      
+      <% if (script_2 && script_2 !== '{}') { %>
+      <script type="application/ld+json">
+        <%- script_2 %>
+      </script>
+      <% } %>
+      
 
   
 </head>
