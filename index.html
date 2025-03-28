@@ -21,16 +21,22 @@
     <meta property="og:type" content="<%= og_type %>" />
     
     <link rel="icon" href="<%= favicon %>" />
-    <link rel="canonical" href="<%= domain %>" />
-    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://<%= domain %>" />
+    <meta name="robots" content="<%= robots %>">
 
     <!-- Inject JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    <%= script_1 %>
-  </script>
-  <script type="application/ld+json">
-    <%= script_2 %>
-  </script>
+    <% if (script_1 && script_1 !== '{}') { %>
+      <script type="application/ld+json">
+        <%- script_1 %>
+      </script>
+      <% } %>
+      
+      <% if (script_2 && script_2 !== '{}') { %>
+      <script type="application/ld+json">
+        <%- script_2 %>
+      </script>
+      <% } %>
+      
 
   
 </head>

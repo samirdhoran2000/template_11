@@ -26,8 +26,8 @@ export default defineConfig({
           favicon: seoData.data.favicon || '',
           robots:
             seoData.data.status === 'Active' ? 'index, follow' : 'noindex, nofollow',
-          script_1: seoData.data.script_1 || '',
-          script_2: seoData.data.script_2 || '',
+          script_1: seoData.data.script_1 ? JSON.stringify(JSON.parse(seoData.data.script_1), null, 2) : '{}',
+          script_2: seoData.data.script_2 ? JSON.stringify(JSON.parse(seoData.data.script_2), null, 2) : '{}',
           domain: seoData.data.domain || '',
           h1_text :  seoData.data.title || 'Default Title',
           h2_text :  seoData.data.meta_description || 'Default Title',    
