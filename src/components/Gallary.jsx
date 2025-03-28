@@ -207,9 +207,9 @@ const Gallery = () => {
           {heading || "Property Gallery"}
         </h2>
         <div className="w-24 h-1 bg-purple-600 mx-auto rounded-full"></div>
-        <p className="text-gray-400 mt-4">
+        {/* <p className="text-gray-400 mt-4">
           Explore the stunning views of Ceratec Tower 1o8
-        </p>
+        </p> */}
       </div>
 
       {/* Gallery Grid with fixed height and scroll */}

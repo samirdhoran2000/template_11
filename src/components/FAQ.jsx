@@ -80,8 +80,7 @@ const FAQ = () => {
         </div>
         <h2 className="text-3xl font-bold text-white text-center">{heading}</h2>
         <p className="text-gray-400 text-center mt-3 max-w-2xl mx-auto">
-          Find answers to commonly asked questions about Ceratec Tower 1o8
-          Balewadi
+          Find answers to commonly asked questions
         </p>
       </div>
 

@@ -2,17 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   MapPin,
   MapIcon,
-  Building,
-  Clock,
-  Navigation,
-  Car,
-  Plane,
-  Train,
-  Briefcase,
-  Home,
-  School,
-  ShoppingBag,
-  Coffee,
   Loader,
 } from "lucide-react";
 import config from "../../config";
