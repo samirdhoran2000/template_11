@@ -79,16 +79,7 @@ const VideoTour = () => {
   }
 
   if (!videos || videos.length === 0) {
-    return (
-      <div className="bg-gray-900 min-h-[300px] p-8 text-center">
-        <div className="bg-gray-800/60 p-6 rounded-lg inline-block">
-          <Video size={40} className="text-gray-500 mx-auto mb-4" />
-          <p className="text-gray-400">
-            No video tours available at the moment.
-          </p>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (
