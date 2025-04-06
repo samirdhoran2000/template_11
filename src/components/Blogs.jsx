@@ -183,8 +183,8 @@ const Blogs = () => {
           </h2>
           <div className="w-24 h-1 bg-purple-600 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Stay updated with our latest articles about Tower 1O8 and the
-            commercial property market in Balewadi, Pune.
+            Stay updated with our latest articles and the
+            commercial property market.
           </p>
         </div>
 
