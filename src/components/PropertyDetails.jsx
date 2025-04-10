@@ -152,10 +152,7 @@ const PropertyDetails = () => {
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 py-10">
-          {/* Property Quick Stats */}
-          <div className="bg-gray-800/60 rounded-xl overflow-hidden shadow-xl backdrop-blur-sm mb-10 transform hover:-translate-y-1 transition-all duration-300">
-            {/* ... (unchanged) */}
-          </div>
+          <div className="bg-gray-800/60 rounded-xl overflow-hidden shadow-xl backdrop-blur-sm mb-10 transform hover:-translate-y-1 transition-all duration-300"></div>
 
           {/* Tabs Navigation */}
           <div className="border-b border-gray-800 mb-8" id="property-details">
@@ -229,7 +226,7 @@ const PropertyDetails = () => {
                   <div className="prose prose-invert max-w-none text-gray-300">
                     {/* Wrap the full description in a scrollable container */}
                     <div
-                      className="max-h-[300px] overflow-y-auto"
+                      className="max-h-[300px] overflow-y-auto property-description"
                       dangerouslySetInnerHTML={createMarkup(
                         propertyData.property_description
                       )}
@@ -339,6 +336,20 @@ const PropertyDetails = () => {
         </div>
       </div>
       <ContactDialog isOpen={isOpen} onClose={closeDialog} />
+      <style jsx>{`
+        .property-description h1 {
+          font-size: 1.5rem;
+          
+        }
+        .property-description h2 {
+          font-size: 1.3rem;
+          
+        }
+        .property-description h3 {
+          font-size: 1.1rem;
+          
+        }
+      `}</style>
     </>
   );
 };
