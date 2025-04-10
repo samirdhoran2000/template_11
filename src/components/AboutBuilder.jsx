@@ -23,7 +23,8 @@ const AboutBuilder = ({
   };
 
   return (
-    htmlContent && (
+    
+      htmlContent && (<>
       <div
         className="bg-gray-800 p-6 border border-gray-800 "
         id="about-builder"
@@ -39,7 +40,7 @@ const AboutBuilder = ({
           <div className="relative">
             <div
               ref={contentRef}
-              className="text-gray-300 overflow-y-auto pr-4 custom-scrollbar"
+              className="text-gray-300 overflow-y-auto pr-4 custom-scrollbar about-builder"
               style={{
                 maxHeight,
                 scrollbarWidth: "thin",
@@ -65,7 +66,24 @@ const AboutBuilder = ({
           </div>
         </div>
       </div>
-    )
+<style jsx>{`
+        .about-builder h1 {
+          font-size: 1.5rem;
+        }
+        .about-builder h2 {
+          font-size: 1.3rem;
+        }
+        .about-builder h3 {
+          font-size: 1.1rem;
+        }
+      `}</style>
+
+
+ </>)
+      
+
+      
+   
   );
 };
 
