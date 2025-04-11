@@ -88,8 +88,11 @@ const AboutBuilder = ({
             margin-bottom: 14px;
           }
           .about-builder strong {
-            
             font-weight: bold;
+          }
+          .about-builder a {
+            font-weight: bold;
+            text-decoration: underline;
           }
         `}</style>
       </>

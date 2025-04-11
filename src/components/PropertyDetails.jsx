@@ -360,6 +360,10 @@ const PropertyDetails = () => {
         .property-description strong {
           font-weight: bold;
         }
+        .property-description a {
+          font-weight: bold;
+          text-decoration:underline;
+        }
       `}</style>
     </>
   );
