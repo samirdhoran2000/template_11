@@ -43,18 +43,18 @@ const Footer = () => {
         setLoading(false);
       }
     };
-     const fetchReraData = async () => {
-       try {
-         const response = await fetch(
-           `${config.API_URL}/rera?website=${config.SLUG_URL}`
-         );
-         if (!response.ok) throw new Error("Failed to fetch RERA data");
-         const data = await response.json();
-         setReraData(data.rera[0]);
-       } catch (err) {
-         console.error("Error fetching RERA data:", err);
-       }
-     };
+    const fetchReraData = async () => {
+      try {
+        const response = await fetch(
+          `${config.API_URL}/rera?website=${config.SLUG_URL}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch RERA data");
+        const data = await response.json();
+        setReraData(data.rera[0]);
+      } catch (err) {
+        console.error("Error fetching RERA data:", err);
+      }
+    };
     fetchReraData();
 
     fetchFooterData();
@@ -116,12 +116,17 @@ const Footer = () => {
                 width={120}
                 className="p-3 bg-[#ffffff] rounded-xl"
               />
-            </div>
-            <div className="mb-4">
-              <p className="text-xs sm:text-sm break-words text-center">
-                <span className="block sm:inline">
-                  Agent RERA: {footerData?.g_setting?.footer_agent_rera}
-                </span>
+            </div>{" "}
+          </>
+        )}
+        <div className="mb-4">
+          <p className="text-xs sm:text-sm break-words text-center">
+            <span className="block sm:inline">
+              Agent RERA: {footerData?.g_setting?.footer_agent_rera}
+            </span>
+
+            {reraData?.rera_url && (
+              <>
                 <span className="hidden sm:inline"> | </span>
                 <span className="block sm:inline">
                   Project RERA: {reraData?.rera_id}
@@ -136,11 +141,11 @@ const Footer = () => {
                     ({reraData.rera_url})
                   </a>
                 )}
-              </p>
-          
-            </div>
-          </>
-        )}
+              </>
+            )}
+          </p>
+        </div>
+
         <div className="flex flex-wrap md:flex-nowrap items-start justify-between gap-6">
           {/* Logo */}
           <div className="w-full md:w-auto">
