@@ -104,48 +104,38 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
       {/* Main footer section with all elements in one row */}
       <div className="container mx-auto px-6 py-6 max-w-7xl">
-        {reraData?.rera_url && (
-          <>
-            <div
-              className={`flex flex-col items-center mb-4`}
-              style={{ transitionDelay: "150ms" }}
-            >
-              <QRCodeCanvas
-                value={reraData.rera_url}
-                height={120}
-                width={120}
-                className="p-3 bg-[#ffffff] rounded-xl"
-              />
-            </div>{" "}
-          </>
-        )}
+        <div
+          className={`flex flex-col items-center mb-4`}
+          style={{ transitionDelay: "150ms" }}
+        >
+          <QRCodeCanvas
+            value={reraData?.rera_url || "https://maharera.maharashtra.gov.in/"}
+            height={120}
+            width={120}
+            className="p-3 bg-[#ffffff] rounded-xl"
+          />
+        </div>{" "}
         <div className="mb-4">
           <p className="text-xs sm:text-sm break-words text-center">
             <span className="block sm:inline">
               Agent RERA: {footerData?.g_setting?.footer_agent_rera}
             </span>
-
-            {reraData?.rera_url && (
-              <>
-                <span className="hidden sm:inline"> | </span>
-                <span className="block sm:inline">
-                  Project RERA: {reraData?.rera_id}
-                </span>
-                {reraData?.rera_url && (
-                  <a
-                    href={reraData.rera_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#696969] block sm:inline overflow-hidden text-ellipsis hover:text-[#555555] transition-colors duration-300"
-                  >
-                    ({reraData.rera_url})
-                  </a>
-                )}
-              </>
-            )}
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline">
+              Project RERA: {reraData?.rera_id || "Comming Soon"}
+            </span>{" "}
+            <a
+              href={
+                reraData?.rera_url || "https://maharera.maharashtra.gov.in/"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#696969] block sm:inline overflow-hidden text-ellipsis hover:text-[#555555] transition-colors duration-300"
+            >
+              ({reraData?.rera_url || "https://maharera.maharashtra.gov.in/"})
+            </a>
           </p>
         </div>
-
         <div className="flex flex-wrap md:flex-nowrap items-start justify-between gap-6">
           {/* Logo */}
           <div className="w-full md:w-auto">
@@ -202,14 +192,6 @@ const Footer = () => {
                   Contact Us
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
-                >
-                  Career
-                </a>
-              </li> */}
             </ul>
           </div>
 
@@ -219,27 +201,6 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-2">
-              {/* <li className="flex items-start">
-                <MapPin
-                  size={16}
-                  className="text-purple-400 mt-1 mr-2 flex-shrink-0"
-                />
-                <span className="text-gray-400 text-sm">
-                  {g_setting.footer_address}
-                </span>
-              </li> */}
-              {/* <li className="flex items-center">
-                <Mail
-                  size={16}
-                  className="text-purple-400 mr-2 flex-shrink-0"
-                />
-                <a
-                  href={`mailto:${g_setting.footer_email}`}
-                  className="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"
-                >
-                  {g_setting.footer_email}
-                </a>
-              </li> */}
               <li className="flex items-center">
                 <Phone
                   size={16}
@@ -271,6 +232,8 @@ const Footer = () => {
             <div className="text-gray-500 text-xs">
               {g_setting.footer_copyright}
             </div>
+
+            <a href="/privacy-policy">Privacy Policy</a>
 
             <button
               onClick={scrollToTop}
