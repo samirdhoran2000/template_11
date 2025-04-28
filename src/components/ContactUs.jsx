@@ -215,7 +215,7 @@ const ContactUs = () => {
                         ? "border-red-500"
                         : "border-gray-700"
                     } rounded-lg pl-10 p-3 focus:outline-none focus:border-purple-500`}
-                    placeholder="First name"
+                    placeholder="First name*"
                   />
                 </div>
                 {formErrors.first_name && (
@@ -245,7 +245,7 @@ const ContactUs = () => {
                         ? "border-red-500"
                         : "border-gray-700"
                     } rounded-lg pl-10 p-3 focus:outline-none focus:border-purple-500`}
-                    placeholder="Last name"
+                    placeholder="Last name*"
                   />
                 </div>
                 {formErrors.last_name && (
@@ -308,7 +308,7 @@ const ContactUs = () => {
                         ? "border-red-500"
                         : "border-gray-700"
                     } rounded-lg pl-10 p-3 focus:outline-none focus:border-purple-500`}
-                    placeholder="Your phone number"
+                    placeholder="Your phone number*"
                   />
                 </div>
                 {formErrors.phone_number && (

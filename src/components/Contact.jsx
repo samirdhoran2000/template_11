@@ -231,7 +231,7 @@ export const ContactDialog = ({ isOpen, onClose }) => {
                         ? "border-red-500"
                         : "border-gray-700"
                     } rounded-lg pl-10 p-2 text-sm focus:outline-none focus:border-purple-500`}
-                    placeholder="First Name"
+                    placeholder="First Name*"
                   />
                 </div>
                 {formErrors.first_name && (
@@ -264,7 +264,7 @@ export const ContactDialog = ({ isOpen, onClose }) => {
                         ? "border-red-500"
                         : "border-gray-700"
                     } rounded-lg pl-10 p-2 text-sm focus:outline-none focus:border-purple-500`}
-                    placeholder="Last Name"
+                    placeholder="Last Name*"
                   />
                 </div>
                 {formErrors.last_name && (
@@ -329,7 +329,7 @@ export const ContactDialog = ({ isOpen, onClose }) => {
                       ? "border-red-500"
                       : "border-gray-700"
                   } rounded-lg pl-10 p-2 text-sm focus:outline-none focus:border-purple-500`}
-                  placeholder="Your phone number"
+                  placeholder="Your phone number*"
                 />
               </div>
               {formErrors.phone_number && (
