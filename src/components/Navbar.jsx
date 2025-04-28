@@ -17,13 +17,13 @@ function Navbar({ propertyData, loading, openDialog }) {
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect for sticky header styling
- useEffect(() => {
-   const handleScroll = () => {
-     setScrolled(window.scrollY > 50);
-   };
-   window.addEventListener("scroll", handleScroll);
-   return () => window.removeEventListener("scroll", handleScroll);
- }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const handleSetActive = (section) => {
@@ -98,9 +98,6 @@ function Navbar({ propertyData, loading, openDialog }) {
                     className="h-8 md:h-12 w-auto object-contain"
                   />
                 )}
-                <span className="absolute -top-1 -right-1 bg-purple-600 text-xs font-semibold px-1 md:px-1.5 py-0.5 rounded-full text-[10px] md:text-xs">
-                  New
-                </span>
               </div>
             </div>
             <nav className="hidden md:block">
