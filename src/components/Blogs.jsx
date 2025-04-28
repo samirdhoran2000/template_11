@@ -182,12 +182,7 @@ const Blogs = () => {
             Latest Insights
           </h2>
           <div className="w-24 h-1 bg-purple-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Stay updated with our latest articles and the
-            commercial property market.
-          </p>
         </div>
-
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {currentBlogs.map((blog) => (
