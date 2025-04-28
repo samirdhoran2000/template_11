@@ -125,7 +125,7 @@ const ReraInformation = () => {
                         </div>
                       </div>
                       <QRCodeCanvas
-                        value={reraData.rera_url}
+                        value={reraData?.rera_url || "https://maharera.maharashtra.gov.in/"}
                         height={120}
                         width={120}
                         className="p-3 bg-[#ffffff] rounded-xl"
