@@ -65,7 +65,15 @@ const PropertyDetails = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.substring(1); // Remove the '#' from the hash
-      if (["overview", "amenities", "location", "gallery"].includes(hash)) {
+      if (
+        [
+          "overview",
+          "information",
+          "amenities",
+          "location",
+          "gallery",
+        ].includes(hash)
+      ) {
         setActiveTab(hash);
       }
     };
@@ -95,7 +103,6 @@ const PropertyDetails = () => {
       </div>
     );
   }
-
   if (error) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
@@ -169,6 +176,19 @@ const PropertyDetails = () => {
                 } transition-colors duration-200`}
               >
                 Overview
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab("information");
+                  window.location.hash = "information";
+                }}
+                className={`py-4 px-3 font-medium text-sm border-b-2 ${
+                  activeTab === "information"
+                    ? "border-purple-500 text-purple-400"
+                    : "border-transparent text-gray-400 hover:text-gray-300"
+                } transition-colors duration-200`}
+              >
+                Information
               </button>
               <button
                 onClick={() => {
@@ -281,6 +301,29 @@ const PropertyDetails = () => {
                 </div>
               )}
             </div>
+            {/* property details */}
+            <div id="information">
+              {activeTab === "information" && (
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-1 h-8 bg-purple-600 rounded-full mr-3"></div>
+                    <h2 className="text-2xl font-bold text-white">
+                      Property Details
+                    </h2>
+                  </div>
+                  <div className="prose prose-invert max-w-none text-gray-300">
+                    {/* Wrap the full description in a scrollable container */}
+                    <div
+                      className="max-h-[300px] overflow-y-auto property-description"
+                      dangerouslySetInnerHTML={createMarkup(
+                        propertyData?.property_information
+                      )}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div id="amenities">
               {activeTab === "amenities" && <Amenities />}
             </div>
@@ -362,7 +405,7 @@ const PropertyDetails = () => {
         }
         .property-description a {
           font-weight: bold;
-          text-decoration:underline;
+          text-decoration: underline;
         }
       `}</style>
     </>
