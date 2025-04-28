@@ -87,7 +87,7 @@ const ReraInformation = () => {
   const displayed = showAll ? reraData : reraData.slice(0, 2);
   return (
     <>
-      <div className="bg-gray-900 py-16 px-4" id="about">
+      <div className="bg-gray-800 py-16 px-4" id="about">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -105,7 +105,7 @@ const ReraInformation = () => {
             return (
               <>
                 {/* Main Content */}
-                <div className="bg-gray-800/60 border border-gray-800 rounded-xl overflow-hidden shadow-lg shadow-purple-900/10 mb-4">
+                <div className="bg-gray-900/60 border border-gray-800 rounded-xl overflow-hidden shadow-lg shadow-purple-900/10 mb-4">
                   {/* RERA Header */}
                   <div className="bg-black/80 p-6 border-b border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
