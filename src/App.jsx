@@ -9,6 +9,8 @@ import { Loader } from "lucide-react";
 
 // Import static SEO data directly
 import seoData from "../public/seodata.json";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+
 
 function App() {
   return (
@@ -23,18 +25,15 @@ function App() {
         <meta property="og:type" content={seoData.data.og_type} />
         <link rel="icon" href={seoData.data.favicon} />
         <link rel="canonical" href={seoData.data.domain} />
-        <script type="application/ld+json">
-          {seoData.data.script_1}
-        </script>
-        <script type="application/ld+json">
-          {seoData.data.script_2}
-        </script>
+        <script type="application/ld+json">{seoData.data.script_1}</script>
+        <script type="application/ld+json">{seoData.data.script_2}</script>
       </Helmet>
       <>
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} exact />
             <Route path="/blogs/:id" element={<BlogContent />} exact />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
           <FloatingButtons />
           <Footer />
