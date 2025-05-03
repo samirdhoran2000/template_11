@@ -57,6 +57,10 @@ $mappedData = [
         "script_2" => $seoData['data']['script_2'] ?? '',
         "h1" => $seoData['data']['h1'] ?? '',
         "h2" => $seoData['data']['h2'] ?? '',
+        "gtag_id" => $seoData['data']['gtag_id'] ?? '',
+        "whatsapp_gtag_id" => $seoData['data']['whatsapp_gtag_id'] ?? '',
+        "phone_conversation_number" => $seoData['data']['phone_conversation_number'] ?? '',
+        "phone_conversation_id" => $seoData['data']['phone_conversation_id'] ?? '',
         "about_builder" => $seoData['data']['about_builder'] ?? '',
         "property_detail" => $seoData['data']['property_detail'] ?? ''
     ]
