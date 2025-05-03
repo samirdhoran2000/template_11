@@ -118,11 +118,11 @@ const Footer = () => {
         <div className="mb-4">
           <p className="text-xs sm:text-sm break-words text-center">
             <span className="block sm:inline">
-              Agent RERA: {footerData?.g_setting?.footer_agent_rera}
+              Agent MahaRera: {footerData?.g_setting?.footer_agent_rera}
             </span>
             <span className="hidden sm:inline"> | </span>
             <span className="block sm:inline">
-              Project RERA: {reraData?.rera_id || "Comming Soon"}
+              Project MahaRera: {reraData?.rera_id || "Comming Soon"}
             </span>{" "}
             <a
               href={
