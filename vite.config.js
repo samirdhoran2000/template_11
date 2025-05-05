@@ -31,6 +31,10 @@ export default defineConfig({
           domain: seoData.data.domain || '',
           h1_text :  seoData.data.title || 'Default Title',
           h2_text :  seoData.data.meta_description || 'Default Title',    
+          gtag_id :  seoData.data.gtag_id || null,    
+          whatsapp_gtag_id :  seoData.data.whatsapp_gtag_id || null,    
+          phone_conversation_number :  seoData.data.meta_description || null,    
+          phone_conversation_id :  seoData.data.phone_conversation_id || null,
           
         },
       },

@@ -38,6 +38,32 @@
       <% } %>
       
 
+        <!-- Google Tag Manager -->
+<% if (gtag_id) { %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gtag_id %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<%= gtag_id %>');
+  </script>
+<% } %>
+
+<!-- WhatsApp Conversion -->
+<% if (whatsapp_gtag_id) { %>
+  <script>
+    gtag('event', 'conversion', {'send_to': '<%= whatsapp_gtag_id %>'});
+  </script>
+<% } %>
+
+<!-- Phone Conversion Tracking -->
+<% if (phone_conversation_id && phone_conversation_number) { %>
+  <script>
+    gtag('config', '<%= phone_conversation_id %>', {
+      'phone_conversion_number': '<%= phone_conversation_number %>'
+    });
+  </script>
+<% } %>
   
 </head>
 
