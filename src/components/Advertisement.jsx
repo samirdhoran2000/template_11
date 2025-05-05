@@ -61,17 +61,17 @@ const Advertisement = () => {
   }
 
   if (error) {
-    return (
-      <div className="bg-white min-h-[200px] py-12 px-4">
-        <div className="max-w-4xl mx-auto bg-red-100 p-6 rounded-lg flex items-center gap-4">
-          <AlertTriangle size={24} className="text-red-500 flex-shrink-0" />
-          <p className="text-red-500">Failed to load advertisements: {error}</p>
-        </div>
-      </div>
+    return ( null
+      // <div className="bg-white min-h-[200px] py-12 px-4">
+      //   <div className="max-w-4xl mx-auto bg-red-100 p-6 rounded-lg flex items-center gap-4">
+      //     <AlertTriangle size={24} className="text-red-500 flex-shrink-0" />
+      //     <p className="text-red-500">Failed to load advertisements: {error}</p>
+      //   </div>
+      // </div>
     );
   }
 
-  if (!ads.length) return null;
+  if (!ads || !ads?.length) return null;
 
   return (
     <div id="advertisements" className="bg-gray-900 py-16 px-4">
