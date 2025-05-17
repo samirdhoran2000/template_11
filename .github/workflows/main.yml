@@ -111,6 +111,8 @@ jobs:
         run: sleep 10
 
       - name: Build React app
+        env:
+          VITE_SLUG_URL: ${{ steps.vars.outputs.domain }}
         run: npm run build
 
       - name: Install sshpass
