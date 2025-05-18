@@ -1,4 +1,4 @@
-name: Build React App
+name: Build Template 11
 
 on:
   # push:
@@ -38,6 +38,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: PROD
+    timeout-minutes: 3
 
     steps:
       - name: Checkout repository
