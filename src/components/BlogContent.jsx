@@ -177,7 +177,7 @@ const BlogContent = () => {
                 transition: "max-height 0.5s ease",
               }}
             >
-              <div dangerouslySetInnerHTML={{ __html: blog.post_content }} />
+              <div className="blog-content" dangerouslySetInnerHTML={{ __html: blog.post_content }} />
             </div>
 
             {/* Gradient overlay when collapsed */}
