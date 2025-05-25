@@ -259,22 +259,22 @@ const PropertyDetails = () => {
                         Property Specifications
                       </h3>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center py-2 border-b border-gray-700">
+                        {/* <div className="flex justify-between items-center py-2 border-b border-gray-700">
                           <span className="text-gray-400 mr-4">
                             Property ID:
                           </span>
                           <span className="text-gray-200 font-medium">
                             {propertyData.id}
                           </span>
-                        </div>
-                        <div className="flex justify-between items-center py-2 border-b border-gray-700">
+                        </div> */}
+                        {/* <div className="flex justify-between items-center py-2 border-b border-gray-700">
                           <span className="text-gray-400 mr-4">
                             Property Type:
                           </span>
                           <span className="text-gray-200 font-medium">
                             {propertyData.property_type}
                           </span>
-                        </div>
+                        </div> */}
                         <div className="flex justify-between items-center py-2 border-b border-gray-700">
                           <span className="text-gray-400 mr-4">Developer:</span>
                           <span className="text-gray-200 font-medium">
@@ -289,12 +289,12 @@ const PropertyDetails = () => {
                             {propertyData.last_updated}
                           </span>
                         </div>
-                        <div className="flex justify-between items-center py-2">
+                        {/* <div className="flex justify-between items-center py-2">
                           <span className="text-gray-400 mr-4">Status:</span>
                           <span className="text-gray-200 font-medium">
                             {propertyData.property_status}
                           </span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
