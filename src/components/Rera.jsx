@@ -125,7 +125,10 @@ const ReraInformation = () => {
                         </div>
                       </div>
                       <QRCodeCanvas
-                        value={reraData?.rera_url || "https://maharera.maharashtra.gov.in/"}
+                        value={
+                          reraData?.rera_url ||
+                          "https://maharera.maharashtra.gov.in/"
+                        }
                         height={120}
                         width={120}
                         className="p-3 bg-[#ffffff] rounded-xl"
@@ -227,7 +230,7 @@ const ReraInformation = () => {
                             size={18}
                             className="text-purple-400 mr-2"
                           />
-                          RERA Compliance Information
+                          MahaRERA Compliance Information
                         </h4>
                         <div className="bg-black/80 p-4 rounded-lg border border-gray-700">
                           <ul className="space-y-3">
@@ -241,7 +244,7 @@ const ReraInformation = () => {
                             <li className="flex items-start">
                               <div className="w-2 h-2 rounded-full bg-purple-400 mt-1.5 mr-2"></div>
                               <span className="text-gray-300 text-sm">
-                                RERA Registration: {reraData.rera_id}
+                                MahaRERA Registration: {reraData.rera_id}
                               </span>
                             </li>
                           </ul>
@@ -252,7 +255,7 @@ const ReraInformation = () => {
                             rel="noopener noreferrer"
                             className="mt-4 text-purple-400 text-sm inline-flex items-center hover:text-purple-300"
                           >
-                            Learn more about RERA compliance
+                            Learn more about MahaRERA compliance
                             <ExternalLink size={12} className="ml-1" />
                           </a>
                         </div>
@@ -291,7 +294,7 @@ const ReraInformation = () => {
           {/* CTA Section */}
           <div className="mt-10 text-center">
             <p className="text-gray-300 mb-4">
-              Interested in knowing more about this RERA registered project?
+              Interested in knowing more about this MahaRERA registered project?
             </p>
             <button
               onClick={() => {
