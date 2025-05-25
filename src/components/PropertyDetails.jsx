@@ -140,12 +140,12 @@ const PropertyDetails = () => {
           />
           <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 bg-purple-600 text-white text-sm font-medium rounded-full">
+              {/* <span className="px-3 py-1 bg-purple-600 text-white text-sm font-medium rounded-full">
                 {propertyData.property_status}
-              </span>
-              <span className="px-3 py-1 bg-yellow-900/20 text-yellow-400 text-sm font-medium rounded-full">
+              </span> */}
+              {/* <span className="px-3 py-1 bg-yellow-900/20 text-yellow-400 text-sm font-medium rounded-full">
                 {propertyData.property_type}
-              </span>
+              </span> */}
               <span className="px-3 py-1 bg-gray-800/60 text-gray-300 text-sm font-medium rounded-full flex items-center">
                 <Calendar size={14} className="mr-1" />
                 Last Updated: {propertyData.last_updated}
