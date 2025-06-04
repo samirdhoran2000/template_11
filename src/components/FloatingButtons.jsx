@@ -4,10 +4,14 @@ import { MessageCircle, Phone, User } from "lucide-react";
 import seodata from '../../seodata.json'
 
 import { ContactDialog } from "./Contact";
+import useContact from "../hooks/useContact";
 
 
 const FloatingButtons = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const { contact } = useContact();
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +28,7 @@ const FloatingButtons = () => {
       id: "whatsapp",
       icon: <MessageCircle size={20} />,
       label: "WhatsApp",
-      href: `https://wa.me/918181817136?text=I%20am%20interested%20in%20${seodata?.data?.property_name}`,
+      href: `https://wa.me/${contact?.footer_phone}?text=I%20am%20interested%20in%20${seodata?.data?.property_name}`,
       color:
         "from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 active:from-purple-800 active:to-indigo-800",
     },
@@ -32,7 +36,7 @@ const FloatingButtons = () => {
       id: "phone",
       icon: <Phone size={20} />,
       label: "Call",
-      href: "tel:+918181817136",
+      href: `tel:${contact?.footer_phone}`,
       color:
         "from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 active:from-purple-800 active:to-indigo-800",
     },

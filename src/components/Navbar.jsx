@@ -10,11 +10,15 @@ import {
   ChevronDown,
   Clock,
 } from "lucide-react";
+import useContact from "../hooks/useContact";
 
 function Navbar({ propertyData, loading, openDialog }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("overview");
   const [scrolled, setScrolled] = useState(false);
+
+  const { contact } = useContact();
+
 
   // Handle scroll effect for sticky header styling
   useEffect(() => {
@@ -67,11 +71,11 @@ function Navbar({ propertyData, loading, openDialog }) {
               <span className="text-sm">RERA Registered</span>
             </div>
             <a
-              href="tel:+918181817136"
+              href={`tel:${contact?.footer_phone}`}
               className="text-sm hover:text-purple-400 transition-colors flex items-center"
             >
               <Phone size={16} className="mr-2" />
-              +91 818181 7136
+              {contact?.footer_phone}
             </a>
           </div>
         </div>
@@ -124,7 +128,7 @@ function Navbar({ propertyData, loading, openDialog }) {
             </nav>
             <div className="hidden md:flex space-x-2 lg:space-x-3">
               <a
-                href="tel:+918181817136"
+                href={`tel:${contact?.footer_phone}`}
                 className="border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-medium py-1.5 px-2 lg:px-3 rounded-md transition-colors flex items-center text-xs lg:text-sm"
               >
                 <Phone size={14} className="mr-1" />
@@ -252,7 +256,7 @@ function Navbar({ propertyData, loading, openDialog }) {
                   Book Site Visit
                 </button>
                 <a
-                  href="tel:+918181817136"
+                  href={`tel:${contact?.footer_phone}`}
                   className="w-full flex justify-center items-center border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white active:bg-purple-700 font-medium py-3 px-4 rounded-md transition-colors"
                 >
                   <Phone size={16} className="mr-2" />
